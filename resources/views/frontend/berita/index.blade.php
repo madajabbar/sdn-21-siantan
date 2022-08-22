@@ -7,31 +7,23 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
+                    @foreach ($berita as $data)
                     <div class="col-md-3">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="https://picsum.photos/200/300">
-                                <div
-                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="{{url('/berita/judul')}}"><i
-                                                    class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="{{url('/berita/judul')}}"><i
-                                                    class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="{{url('/berita/judul')}}"><i
-                                                    class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
+                                <img class="card-img rounded-0 img-fluid" src="{{asset('storage/'.$data->link)}}">
                             </div>
                             <div class="card-body">
                                 <center>
-                                    <a href="{{url('/berita/judul')}}" class="h2 text-decoration-none">Judul</a>
+                                    <a href="{{url('/berita/'.$data->id)}}" class="h2 text-decoration-none">{{$data->judul}}</a>
                                     <br>
-                                    <a href="{{url('/berita/judul')}}" class="p text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit.... </a>
+                                    <a href="{{url('/berita/'.$data->id)}}" class="p text-decoration-none">Dibuat :   {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}</a>
                                 </center>
                             </div>
                         </div>
                     </div>
+
+                    @endforeach
                 </div>
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">

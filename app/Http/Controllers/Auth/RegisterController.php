@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\DataAlumni;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,6 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'nisn' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,10 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // dd($data);
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 'alumni',
+            'nisn' => $data['nisn'],
         ]);
+        $alumni = DataAlumni::create(
+            [
+                'alamat' => $data['alamat'],
+                'tempat_lahir' => $data['tempat_lahir'],
+                'tanggal_lahir' => $data['tanggal_lahir'],
+                'tanggal_lahir' => $data['tanggal_lahir'],
+                'nama_ayah' => $data['nama_ayah'],
+                'nama_ibu' => $data['nama_ibu'],
+                'user_id' => $user->id,
+
+            ]
+        );
+        return $user;
     }
 }

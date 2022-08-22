@@ -2,7 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\DataAlumni;
+use App\Models\DataPelajar;
+use App\Models\DataPengajar;
+use App\Models\Galeri;
+use App\Models\Silabus;
+use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
@@ -29,21 +38,131 @@ class HomeController extends Controller
         return view('frontend.profil.index');
     }
     public function dataPengajar(){
-        return view('frontend.data_pengajar.index');
+        $data['pengajar'] = DataPengajar::latest()->paginate(9);
+        return view('frontend.data_pengajar.index', $data);
     }
-    public function dataPengajarPersonal(){
-        return view('frontend.data_pengajar.data_pengajar_personal.index');
+    public function dataPengajarPersonal($id){
+        $data['pengajar'] = DataPengajar::find($id);
+        return view('frontend.data_pengajar.data_pengajar_personal.index', $data);
     }
-    public function dataPelajar(){
+    public function dataPelajar(Request $request){
+        if ($request->ajax()) {
+            $data = DataPelajar::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('ttl', function ($row) {
+                    $ttl = $row->tempat_lahir . ', ' . $row->tanggal_lahir;
+                    return $ttl;
+                })
+                ->editColumn('keterangan', function ($row)
+                {
+                    if(isset($row->keterangan)){
+                        return $row->keterangan;
+                    }
+                    else {
+                        return 'Aktif';
+                    }
+                })
+                ->rawColumns(['link', 'action'])
+                ->make(true);
+        }
         return view('frontend.data_pelajar.index');
     }
-    public function dataPelajarPersonal(){
-        return view('frontend.data_pelajar.data_pelajar_personal.index');
+    public function dataPelajarPersonal($id){
+        $data['pelajar'] = DataPelajar::find($id);
+        return view('frontend.data_pelajar.data_pelajar_personal.index', $data);
+    }
+    public function dataAlumni(Request $request){
+        if ($request->ajax()) {
+            $data = DataAlumni::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('ttl', function ($row) {
+                    $ttl = $row->tempat_lahir . ', ' . $row->tanggal_lahir;
+                    return $ttl;
+                })
+                ->addColumn('nama',function ($row) {
+                    return $row->user->name;
+                })
+                ->addColumn('nisn',function ($row) {
+                    return $row->user->nisn;
+                })
+                ->addColumn('nama_ayah',function ($row) {
+                    return $row->nama_ayah;
+                })
+                ->addColumn('nama_ibu',function ($row) {
+                    return $row->nama_ibu;
+                })
+                ->addColumn('alamat',function ($row) {
+                    return $row->alamat;
+                })
+                ->make(true);
+        }
+        return view('frontend.data_alumni.index');
     }
     public function berita(){
-        return view('frontend.berita.index');
+        $data['berita'] = Berita::latest()->paginate(9);
+        return view('frontend.berita.index',$data);
     }
-    public function beritaSinglePage(){
-        return view('frontend.berita.single-page.index');
+    public function beritaSinglePage($id){
+        $data['berita'] = Berita::find($id);
+        return view('frontend.berita.single-page.index',$data);
+    }
+    public function silabus(Request $request){
+        if ($request->ajax()) {
+            $get = Silabus::orderBy('id','Desc')->get();
+            return DataTables::of($get)
+                    ->addIndexColumn()
+                    ->editColumn('link',function($row){
+                        $get = asset('storage/'.$row->link);
+                       return '<a href="'.$get.'" class="edit btn btn-primary btn-sm">Download</a>';
+                    })
+                    ->rawColumns(['link'])
+                    ->make(true);
+        }
+        return view('frontend.silabus.index');
+    }
+    public function galeri(){
+        $data['galeri'] = Galeri::latest()->paginate(9);
+        return view('frontend.galeri.index', $data);
+    }
+    public function user($id){
+        $data['data'] = User::find($id);
+        return view('frontend.user.index',$data);
+    }
+    public function editUser($id){
+        $data['data'] = User::find($id);
+        return view('frontend.user.edit',$data);
+    }
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        if($request->name){
+            $user->name = $request->name;
+        }
+        if($request->email){
+            $user->email = $request->email;
+        }
+        if($request->nisn){
+            $user->nisn = $request->nisn;
+        }
+        if($request->alamat){
+            $user->dataAlumni->alamat = $request->alamat;
+        }
+        if($request->nama_ayah){
+            $user->dataAlumni->nama_ayah = $request->nama_ayah;
+        }
+        if($request->nama_ibu){
+            $user->dataAlumni->nama_ibu = $request->nama_ibu;
+        }
+        if($request->tempat_lahir){
+            $user->dataAlumni->tempat_lahir = $request->tempat_lahir;
+        }
+        if($request->tanggal_lahir){
+            $user->dataAlumni->tanggal_lahir = $request->tanggal_lahir;
+        }
+        $user->save();
+        $user->dataAlumni->save();
+        Alert::success('success', 'Data Berhasil Diubah');
+        return redirect('user/'.$user->id);
     }
 }

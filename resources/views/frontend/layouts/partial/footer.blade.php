@@ -53,7 +53,6 @@
                 <div class="col-12">
                     <p class="text-center text-light">
                         Copyright &copy; 2021 SD Negeri 21 Siantan
-                        | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
                     </p>
                 </div>
             </div>
