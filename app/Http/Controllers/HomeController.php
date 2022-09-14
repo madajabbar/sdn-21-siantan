@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -73,32 +74,42 @@ class HomeController extends Controller
         return view('frontend.data_pelajar.data_pelajar_personal.index', $data);
     }
     public function dataAlumni(Request $request){
-        if ($request->ajax()) {
-            $data = DataAlumni::latest()->get();
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('ttl', function ($row) {
-                    $ttl = $row->tempat_lahir . ', ' . $row->tanggal_lahir;
-                    return $ttl;
-                })
-                ->addColumn('nama',function ($row) {
-                    return $row->user->name;
-                })
-                ->addColumn('nisn',function ($row) {
-                    return $row->user->nisn;
-                })
-                ->addColumn('nama_ayah',function ($row) {
-                    return $row->nama_ayah;
-                })
-                ->addColumn('nama_ibu',function ($row) {
-                    return $row->nama_ibu;
-                })
-                ->addColumn('alamat',function ($row) {
-                    return $row->alamat;
-                })
-                ->make(true);
-        }
-        return view('frontend.data_alumni.index');
+        // if ($request->ajax()) {
+        //     $data = DataAlumni::latest()->get();
+        //     return DataTables::of($data)
+        //         ->addIndexColumn()
+        //         ->addColumn('ttl', function ($row) {
+        //             $ttl = $row->tempat_lahir . ', ' . $row->tanggal_lahir;
+        //             return $ttl;
+        //         })
+        //         ->addColumn('nama',function ($row) {
+        //             return $row->user->name;
+        //         })
+        //         ->addColumn('nisn',function ($row) {
+        //             return $row->user->nisn;
+        //         })
+        //         ->addColumn('nama_ayah',function ($row) {
+        //             return $row->nama_ayah;
+        //         })
+        //         ->addColumn('nama_ibu',function ($row) {
+        //             return $row->nama_ibu;
+        //         })
+        //         ->addColumn('alamat',function ($row) {
+        //             return $row->alamat;
+        //         })
+        //         ->addColumn('action', function ($row){
+        //             $data =  '<a href="data-alumni/' . $row->id . '" class="edit btn btn-success btn-sm">Detail</a>';
+        //             return $data;
+        //         })
+        //         ->rawColumns(['action'])
+        //         ->make(true);
+        // }
+        $data['alumni'] = DataAlumni::latest()->paginate(9);
+        return view('frontend.data_alumni.index',$data);
+    }
+    public function dataAlumniPersonal($id){
+        $data['alumni'] = DataAlumni::find($id);
+        return view('frontend.data_alumni.data_alumni_personal.index', $data);
     }
     public function berita(){
         $data['berita'] = Berita::latest()->paginate(9);
@@ -136,29 +147,26 @@ class HomeController extends Controller
     }
     public function update(Request $request, $id){
         $user = User::find($id);
-        if($request->name){
-            $user->name = $request->name;
-        }
         if($request->email){
             $user->email = $request->email;
-        }
-        if($request->nisn){
-            $user->nisn = $request->nisn;
         }
         if($request->alamat){
             $user->dataAlumni->alamat = $request->alamat;
         }
-        if($request->nama_ayah){
-            $user->dataAlumni->nama_ayah = $request->nama_ayah;
-        }
-        if($request->nama_ibu){
-            $user->dataAlumni->nama_ibu = $request->nama_ibu;
-        }
-        if($request->tempat_lahir){
-            $user->dataAlumni->tempat_lahir = $request->tempat_lahir;
-        }
-        if($request->tanggal_lahir){
-            $user->dataAlumni->tanggal_lahir = $request->tanggal_lahir;
+        // dd($user->dataAlumni->foto);
+        if($request->file('foto')){
+            $extension = $request->foto->getClientOriginalExtension();
+            $fileName = Str::slug($user->name) . '.' . $extension;
+            $path = public_path() . '/storage/alumni/';
+            $dir = 'alumni' . '/' . $fileName;
+            $update = DataAlumni::where('user_id', $user->id)->first();
+            if (!empty($update->foto)) {
+                unlink('storage/' . $update->foto);
+            }
+            $file = $request->file('foto');
+            $file->move($path, $fileName);
+            $update->foto = $dir;
+            $update->save();
         }
         $user->save();
         $user->dataAlumni->save();

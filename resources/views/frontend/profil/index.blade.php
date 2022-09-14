@@ -9,9 +9,7 @@
                 <div class="col-md-6 text-white">
                     <h1>About Us</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Sekolah Dasar Negeri 21 Siantan merupakan sekolah negeri yang berlokasi di Jalan Darma Bhakti, Jungkat, Kec. Siantan, Kab. Mempawah Prov. Kalimantan Barat. Sekolah ini didirikan pada tanggal 13 Februari 1990, sekolah ini memiliki akreditasi B, dengan jumlah guru 11 orang, dan kurang lebih 218 orang siswa. Jumlah ruangan di sekolah ini yaitu 8 ruang kelas, ruang UKS (Usaha Kesehatan Sekolah), perpustakaan, lapangan olahraga, dan musholla.
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -30,15 +28,22 @@
             <div class="row p-5">
                 <div class="col-lg-12 mb-0 d-flex align-items-center">
                     <div class="text-align-left align-self-center text-justify">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis earum corrupti ipsam alias
-                            quam inventore cum, aliquam, incidunt laudantium dolorem, nihil quasi a magni fugiat vero
-                            ut. Soluta, amet voluptas!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quia incidunt reprehenderit
-                            nulla quod commodi, maiores quam earum dolorum fugit sapiente beatae optio praesentium
-                            cupiditate quos nemo hic ullam tempore?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quia incidunt reprehenderit
-                            nulla quod commodi, maiores quam earum dolorum fugit sapiente beatae optio praesentium
-                            cupiditate quos nemo hic ullam tempore?</p>
+                        <p>
+                            Puji syukur kami panjatkan kehadirat ALLAH SWT atas limpahan rahmat dan karunia-Nya sehingga SDN 21 Siantan berhasil membangun website, Kehadiran Website SDN 21 Siantan diharapkan dapat memudahkan penyampaian informasi secara terbuka kepada warga sekolah, alumni dan masyarakat serta instansi lain yang terkait.
+
+                            Semoga dengan kehadiran Website ini dapat memperoleh informasi dengan cepat sehingga dapat mengikuti perkembangan dalam pengetahuan yang berkembang dengan cepat pula. Kesiapan dari semua warga sekolah sangat besar artinya bagi keberadaan website tersebut, sebab tanpa kesiapan dari warga sekolah maka keberadaan website tersebut akan tidak ada gunanya.
+
+                            Sehubungan dengan hal tersebut maka semua warga sekolah harus mau untuk belajar menggunakan komputer dan internet, agar dapat meng-akses segala informasi yang berhubungan dengan sekolah dan pengetahuan di internet.
+
+                            Selamat bekerja,
+                        </p>
+                        <p>
+
+                            Demikian dan terima kasih.
+
+                            Wassalamu’alaikum Wr. Wb.
+                            Kepala Sekolah SD Negeri 21 Siantan
+                        </p>
                     </div>
                 </div>
             </div>
@@ -53,15 +58,18 @@
             <div class="row p-5">
                 <div class="col-lg-12 mb-0 d-flex align-items-center">
                     <div class="text-align-left align-self-center">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis earum corrupti ipsam alias
-                            quam inventore cum, aliquam, incidunt laudantium dolorem, nihil quasi a magni fugiat vero
-                            ut. Soluta, amet voluptas!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quia incidunt reprehenderit
-                            nulla quod commodi, maiores quam earum dolorum fugit sapiente beatae optio praesentium
-                            cupiditate quos nemo hic ullam tempore?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quia incidunt reprehenderit
-                            nulla quod commodi, maiores quam earum dolorum fugit sapiente beatae optio praesentium
-                            cupiditate quos nemo hic ullam tempore?</p>
+                        <h3>Visi</h3>
+                        <p>INOVATIF, EFISIEN DAN KOMPETITIF BERBASIS PADA SDM YANG TANGGUH</p>
+                        <h3>Misi</h3>
+                        <p>
+                            <ul>
+                                <li>MEWUJUDKAN SEKOLAH INOVATIF</li>
+                                <li>MEWUJUDKAN MANAJEMEN BERBASIS SEKOLAH YANG TANGGUH</li>
+                                <li>MEWUJUDKAN KEMAMPUAN OLAHRAGA YANG TANGGUH DAN KOMPETITIF</li>
+                                <li>MEWUJUDKAN SEKOLAH SEHAT</li>
+                                <li>MEWUJUDKAN KEPRAMUKAAN YANG MENJADI SURI TAULADAN</li>
+                            </ul>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -73,87 +81,7 @@
         </div>
         </div>
         <div class="container text-center">
-            <h1 class="level-1 rectangle">Kepala Sekolah</h1>
-            <ul class="level-2-wrapper">
-                <li>
-                    <h2 class="level-2 rectangle">Director A</h2>
-                    <ul class="level-3-wrapper">
-                        <li>
-                            <h3 class="level-3 rectangle">Manager A</h3>
-                            <ul class="level-4-wrapper">
-                                <li>
-                                    <h4 class="level-4 rectangle">Person A</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person B</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person C</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person D</h4>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3 class="level-3 rectangle">Manager B</h3>
-                            <ul class="level-4-wrapper">
-                                <li>
-                                    <h4 class="level-4 rectangle">Person A</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person B</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person C</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person D</h4>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 class="level-2 rectangle">Director B</h2>
-                    <ul class="level-3-wrapper">
-                        <li>
-                            <h3 class="level-3 rectangle">Manager C</h3>
-                            <ul class="level-4-wrapper">
-                                <li>
-                                    <h4 class="level-4 rectangle">Person A</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person B</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person C</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person D</h4>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3 class="level-3 rectangle">Manager D</h3>
-                            <ul class="level-4-wrapper">
-                                <li>
-                                    <h4 class="level-4 rectangle">Person A</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person B</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person C</h4>
-                                </li>
-                                <li>
-                                    <h4 class="level-4 rectangle">Person D</h4>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <img class="img-responsive img-fluid" src="{{asset('img/struktur.jpeg')}}" alt="">
         </div>
     </section>
 @endsection

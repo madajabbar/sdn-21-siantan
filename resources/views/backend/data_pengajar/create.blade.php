@@ -20,7 +20,7 @@
                         <label>NIP</label>
                         <div class="mb-3">
                             <input type="text" class="form-control" placeholder="nip" aria-label="nip" name="nip"
-                                required value="{{ $data->nip }}">
+                             value="{{ $data->nip }}">
                         </div>
                         <label>Status</label>
                         <div class="mb-3">
@@ -82,8 +82,11 @@
                         </div>
                         <label>Keterangan</label>
                         <div class="mb-3">
-                            <input type="text" name="keterangan" placeholder="keterangan" id="keterangan"
-                                class="form-control" value="{{$data->keterangan}}">
+                            <select name="keterangan" id="keterangan" class="form-control" required value="{{ $data->keterangan }}">
+                                @foreach ($keterangan as $keterangan)
+                                <option value="{{$keterangan}}" {{ $keterangan == $data->keterangan ? 'selected' : '' }} >{{$keterangan}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <label>Foto</label>
                         <div class="mb-3">
@@ -102,7 +105,7 @@
                         <label>NIP</label>
                         <div class="mb-3">
                             <input type="number" class="form-control" placeholder="nip" aria-label="nip"
-                                name="nip" required>
+                                name="nip">
                         </div>
                         <label>Status</label>
                         <div class="mb-3">
@@ -117,6 +120,7 @@
                                 <option value="S1">S1</option>
                                 <option value="S2">S2</option>
                                 <option value="S3">S3</option>
+                                <option value="SMA">SMA</option>
                             </select>
                         </div>
                         <label>Jabatan</label>
@@ -133,7 +137,7 @@
                         </div>
                         <label>Agama</label>
                         <div class="mb-3">
-                            <select name="agama" id="agama" class="form-control" required>
+                            <select name="keterangan" id="keterangan" class="form-control" required>
                                 <option value="Islam">Islam</option>
                                 <option value="Kristen">Kristen</option>
                                 <option value="Khatolik">Khatolik</option>
@@ -163,8 +167,11 @@
                         </div>
                         <label>Keterangan</label>
                         <div class="mb-3">
-                            <input type="text" name="keterangan" placeholder="keterangan" id="keterangan"
-                                class="form-control">
+                            <select name="agama" id="agama" class="form-control" required>
+                                <option value="PNS">PNS</option>
+                                <option value="PPPK">PPPK</option>
+                                <option value="HONORER">HONORER</option>
+                            </select>
                         </div>
                         <label>Foto</label>
                         <div class="mb-3">

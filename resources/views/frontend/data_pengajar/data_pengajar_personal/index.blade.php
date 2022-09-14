@@ -51,24 +51,9 @@
                                 <h1 class="h3 col-8">{{ $pengajar->agama }}</h1>
                             </div>
                             <div class="row">
-                                <h1 class="h3 col-3">TTL</h1>
+                                <h1 class="h3 col-3">Umur</h1>
                                 <h1 class="h3 col-1">:</h1>
-                                <h1 class="h3 col-8">{{ $pengajar->tempat_lahir }},{{ $pengajar->tanggal_lahir }}</h1>
-                            </div>
-                            <div class="row">
-                                <h1 class="h3 col-3">Alamat</h1>
-                                <h1 class="h3 col-1">:</h1>
-                                <h1 class="h3 col-8">{{ $pengajar->alamat }}</h1>
-                            </div>
-                            <div class="row">
-                                <h1 class="h3 col-3">Telepon</h1>
-                                <h1 class="h3 col-1">:</h1>
-                                <h1 class="h3 col-8">{{ $pengajar->telepon }}</h1>
-                            </div>
-                            <div class="row">
-                                <h1 class="h3 col-3">Keterangan</h1>
-                                <h1 class="h3 col-1">:</h1>
-                                <h1 class="h3 col-8">{{ $pengajar->keterangan }}</h1>
+                                <h1 class="h3 col-8">{{\Carbon\Carbon::now()->format('Y') - date('Y', strtotime($pengajar->tanggal_lahir)) }}</h1>
                             </div>
                             <form action="" method="GET">
                                 <input type="hidden" name="product-title" value="Activewear">

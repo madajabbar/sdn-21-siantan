@@ -67,25 +67,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // dd($data);
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'role' => 'alumni',
-            'nisn' => $data['nisn'],
-        ]);
-        $alumni = DataAlumni::create(
-            [
-                'alamat' => $data['alamat'],
-                'tempat_lahir' => $data['tempat_lahir'],
-                'tanggal_lahir' => $data['tanggal_lahir'],
-                'tanggal_lahir' => $data['tanggal_lahir'],
-                'nama_ayah' => $data['nama_ayah'],
-                'nama_ibu' => $data['nama_ibu'],
-                'user_id' => $user->id,
+        // $user = User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'role' => 'alumni',
+        //     'nisn' => $data['nisn'],
+        // ]);
+        // $alumni = DataAlumni::create(
+        //     [
+        //         'alamat' => $data['alamat'],
+        //         'tempat_lahir' => $data['tempat_lahir'],
+        //         'tanggal_lahir' => $data['tanggal_lahir'],
+        //         'tanggal_lahir' => $data['tanggal_lahir'],
+        //         'nama_ayah' => $data['nama_ayah'],
+        //         'nama_ibu' => $data['nama_ibu'],
+        //         'user_id' => $user->id,
 
-            ]
-        );
-        return $user;
+        //     ]
+        // );
+        // return $user;
     }
 }

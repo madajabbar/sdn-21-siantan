@@ -12,23 +12,22 @@
             <div class="carousel-item active">
                 <div class="container">
                     <div class="row p-5">
+                        <div class="mx-auto col-md-12 col-lg-12 order-lg-last">
+                            <img class="img-fluid" src="{{asset('img/gambar (1).jpeg')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{asset('frontend/assets/img/bg-hero_1.png')}}" width="400" height="400" alt="">
+                            <img class="img-fluid" src="{{asset('img/gambar (2).jpeg')}}" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Lorem </b>ipsum</h1>
-                                <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
+                            <div class="text-align-left">
                                 <p>
-                                    Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1).
-                                    This template is 100% free provided by <a rel="sponsored" class="text-success"
-                                        href="https://templatemo.com" target="_blank">TemplateMo</a> website.
-                                    Image credits go to <a rel="sponsored" class="text-success"
-                                        href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/"
-                                        target="_blank">Unsplash</a> and
-                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons
-                                        8</a>.
+                                    INOVATIF, EFISIEN DAN KOMPETITIF BERBASIS PADA SDM YANG TANGGUH
                                 </p>
                             </div>
                         </div>
@@ -39,37 +38,17 @@
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{asset('frontend/assets/img/bg-hero_2.png')}}" alt="">
+                            <img class="img-fluid" src="{{asset('img/gambar (3).jpeg')}}" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
-                                <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites.
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
-                                    kind of template collection websites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{asset('frontend/assets/img/bg-hero_3.png')}}" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites.
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell
-                                    your friends about our website. Thank you.
-                                </p>
+                                <ul>
+                                    <li>MEWUJUDKAN SEKOLAH INOVATIF</li>
+                                    <li>MEWUJUDKAN MANAJEMEN BERBASIS SEKOLAH YANG TANGGUH</li>
+                                    <li>MEWUJUDKAN KEMAMPUAN OLAHRAGA YANG TANGGUH DAN KOMPETITIF</li>
+                                    <li>MEWUJUDKAN SEKOLAH SEHAT</li>
+                                    <li>MEWUJUDKAN KEPRAMUKAAN YANG MENJADI SURI TAULADAN</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -98,25 +77,23 @@
         <div class="container">
             <div class="row p-5">
                 <div class="col-lg-6 mb-0 d-flex align-items-center">
-                    <div class="text-align-left align-self-center">
+                    <div class="text-justify align-self-center">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod modi a! Repellendus magni
-                            corrupti cumque necessitatibus. Aspernatur molestiae quas officia iste magni sapiente enim
-                            reiciendis doloremque quam distinctio. Veniam cupiditate, quasi ipsam vel laborum rem? Facere
-                            quibusdam aspernatur perferendis ducimus debitis vel est officia. Iusto quia obcaecati aperiam
-                            minus eius nisi culpa esse illum necessitatibus similique, temporibus eligendi placeat, beatae
-                            distinctio nam modi dolores cum tempora quos, sint perferendis ullam rerum deserunt. Molestias
-                            nulla nostrum quis illum aperiam cupiditate eaque in, omnis cum vitae atque repellat dolorem,
-                            assumenda est quidem iusto? Ipsam dolore odit quae pariatur officia error suscipit?
+                            Puji syukur kami panjatkan kehadirat ALLAH SWT atas limpahan rahmat dan karunia-Nya sehingga SDN 21 Siantan berhasil membangun website, Kehadiran Website SDN 21 Siantan diharapkan dapat memudahkan penyampaian informasi secara terbuka kepada warga sekolah, alumni dan masyarakat serta instansi lain yang terkait.
+
+                            Semoga dengan kehadiran Website ini dapat memperoleh informasi dengan cepat sehingga dapat mengikuti perkembangan dalam pengetahuan yang berkembang dengan cepat pula. Kesiapan dari semua warga sekolah sangat besar artinya bagi keberadaan website tersebut, sebab tanpa kesiapan dari warga sekolah maka keberadaan website tersebut akan tidak ada gunanya.
+
+                            Sehubungan dengan hal tersebut maka semua warga sekolah harus mau untuk belajar menggunakan komputer dan internet, agar dapat meng-akses segala informasi yang berhubungan dengan sekolah dan pengetahuan di internet.
+
+                            Selamat bekerja,
                         </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At beatae ipsum sed consequuntur.
-                            Consequatur hic in et veniam. Maiores eius odio quis rem dolore saepe modi! Esse quibusdam
-                            perspiciatis doloribus.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis cum nihil aliquam, dicta
-                            consequatur tenetur beatae iusto? Architecto molestias laborum consequuntur, asperiores rerum
-                            ipsam quidem expedita voluptates officia obcaecati omnis beatae qui illo consequatur doloribus
-                            quas culpa laudantium quod inventore quisquam nisi animi incidunt. Minus provident modi beatae
-                            quia ut!</p>
+                        <p>
+
+                            Demikian dan terima kasih.
+
+                            Wassalamu’alaikum Wr. Wb.
+                            Kepala Sekolah SD Negeri 21 Siantan
+                        </p>
                     </div>
                 </div>
                 <div class="mx-auto col-md-8 col-lg-6 order-lg-first">

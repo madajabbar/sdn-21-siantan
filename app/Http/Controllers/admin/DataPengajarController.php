@@ -152,9 +152,10 @@ class DataPengajarController extends Controller
         $data['title'] = 'Data Pengajar';
         $data['data'] = DataPengajar::find($id);
         $data['status'] = array('aktif','non aktif');
-        $data['pendidikan'] = array('S1','S2', 'S3');
+        $data['pendidikan'] = array('S1','S2', 'S3', 'SMA');
         $data['jenis_kelamin'] = array('Laki-Laki','Perempuan');
         $data['agama'] = array('Islam','Kristen','Khatolik','Hindu','Budha','Konghucu');
+        $data['keterangan'] = array('PNS','PPPK','HONORER');
         return view('backend.data_pengajar.create',$data);
     }
 

@@ -30,15 +30,6 @@
                           <li><a class="nav-link" href="{{ url('/data-alumni') }}">Data Alumni</a></li>
                         </ul>
                       </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/data-pengajar') }}">Data Pengajar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/data-pelajar') }}">Data Pelajar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/data-alumni') }}">Data Alumni</a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/silabus')}}">Silabus</a>
                     </li>
@@ -48,12 +39,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/galeri')}}">Galeri</a>
                     </li>
+                    @if (Auth::check())
+                        @if (Auth::user()->role == 'alumni')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{Auth::user()->dataAlumni->link ? asset('storage/'. Auth::user()->dataAlumni->link) : '#'}}">{{Auth::user()->dataAlumni->link ? 'Download' : 'Menunggu'}}</a>
+                            </li>
+                        @endif
+
+                    @endif
                 </ul>
             </div>
             @if (Auth::check())
                 <div class="navbar align-self-center d-flex">
                     <a class="nav-icon position-relative text-decoration-none" href="{{Auth::user()->role == 'alumni' ? url('user/'.Auth::user()->id) : route('dashboard.index')}}">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="btn btn-light top-0 left-100">{{Auth::user()->name}}</span>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">

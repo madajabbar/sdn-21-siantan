@@ -40,10 +40,11 @@ class LoginController extends Controller
     public function login(Request $request){
         $input = $request->all();
         $this->validate($request,[
-            'email' => 'required|email',
             'password' => 'required',
+            'nisn' => 'required'
         ]);
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        $fieldType = filter_var($request->nisn, FILTER_VALIDATE_EMAIL) ? 'email' : 'nisn';
+        if(auth()->attempt(array('password' => $input['password'], $fieldType => $input['nisn'])))
         {
             if (auth()->user()->role == 'admin') {
                 return redirect()->route('dashboard.index');

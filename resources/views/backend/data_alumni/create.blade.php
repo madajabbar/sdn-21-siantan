@@ -33,7 +33,7 @@
                         <label>Email</label>
                         <div class="mb-3">
                             <input type="email" class="form-control" placeholder="email" aria-label="email"
-                                name="email" required value="">
+                                name="email" value="">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -69,14 +69,24 @@
                             <input type="text" name="nama_ibu" placeholder="nama_ibu" id="nama_ibu"
                                 class="form-control" value="">
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Update Data</button>
+                        <label>Foto</label>
+                        <div class="mb-3">
+                            <input type="file" name="foto" placeholder="foto" id="foto"
+                                class="form-control" value="">
                         </div>
-                        @error('any')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                        <div class="text-center">
+                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Add Data</button>
+                        </div>
+
                 </form>
             </div>
         </div>

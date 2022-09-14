@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Auth::routes();
@@ -37,7 +37,7 @@ Route::get('/data-pengajar/{id}',[HomeController::class, 'dataPengajarPersonal']
 Route::get('/data-pelajar',[HomeController::class, 'dataPelajar'])->name('frontend.data-pelajar');
 Route::get('/data-pelajar/{id}',[HomeController::class, 'dataPelajarPersonal']);
 Route::get('/data-alumni',[HomeController::class, 'dataAlumni'])->name('frontend.data-alumni');
-// Route::get('/data-alumni/{id}',[HomeController::class, 'dataAlumniPersonal']);
+Route::get('/data-alumni/{id}',[HomeController::class, 'dataAlumniPersonal']);
 Route::get('/berita',[HomeController::class, 'berita']);
 Route::get('/berita/{id}',[HomeController::class, 'beritaSinglePage']);
 Route::get('/silabus', [HomeController::class, 'silabus'])->name('frontend.silabus');

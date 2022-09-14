@@ -57,9 +57,7 @@
                                 <div class="col d-grid">
                                     <a href="{{ url('user/edit/'.$data->id) }}" class="btn btn-warning btn-lg"
                                         >Edit User</a>
-
                                 </div>
-
                             </div>
                             <form action="" method="GET">
                                 <input type="hidden" name="product-title" value="Activewear">

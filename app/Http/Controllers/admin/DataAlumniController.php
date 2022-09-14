@@ -27,7 +27,7 @@ class DataAlumniController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('link', function ($row) {
-                    if($row->hasVerifiedEmail()){
+                    if ($row->hasVerifiedEmail()) {
                         if (isset($row->dataAlumni)) {
                             $ijazah = asset('storage/' . $row->dataAlumni->link);
                             return '<a href="' . $ijazah . '" class="edit btn btn-primary btn-sm">Download</a>
@@ -36,17 +36,17 @@ class DataAlumniController extends Controller
                         return '<a href="alumni/' . $row->id . '/check" class="edit btn btn-primary btn-sm">Isi Ijazah</a>';
                     }
                 })
-                ->addColumn('ttl', function ($row){
-                    return $row->dataAlumni->tempat_lahir .', '.$row->dataAlumni->tanggal_lahir;
+                ->addColumn('ttl', function ($row) {
+                    return $row->dataAlumni->tempat_lahir . ', ' . $row->dataAlumni->tanggal_lahir;
                 })
-                ->addColumn('alamat', function ($row){
-                    return $row->dataAlumni->alamat ;
+                ->addColumn('alamat', function ($row) {
+                    return $row->dataAlumni->alamat;
                 })
-                ->addColumn('nama_ayah', function ($row){
-                    return $row->dataAlumni->nama_ayah ;
+                ->addColumn('nama_ayah', function ($row) {
+                    return $row->dataAlumni->nama_ayah;
                 })
-                ->addColumn('nama_ibu', function ($row){
-                    return $row->dataAlumni->nama_ibu ;
+                ->addColumn('nama_ibu', function ($row) {
+                    return $row->dataAlumni->nama_ibu;
                 })
                 ->addColumn('action', function ($row) {
 
@@ -88,18 +88,18 @@ class DataAlumniController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addIjazah(Request $request)
-        {
+    {
         $request->validate([
             'link' => 'required|mimes:pdf,xlx,csv',
         ]);
         $nama = User::find($request->id);
         $extension = $request->link->getClientOriginalExtension();
-        $fileName = Str::slug($nama->name).'.' .$extension;
-        $path = public_path().'/storage/ijazah/';
-        $dir = 'ijazah' .'/' . $fileName;
+        $fileName = Str::slug($nama->name) . '.' . $extension;
+        $path = public_path() . '/storage/ijazah/';
+        $dir = 'ijazah' . '/' . $fileName;
         $update = DataAlumni::where('user_id', $request->id);
-        if(!empty($update->link)){
-            unlink('storage/'.$update->link);
+        if (!empty($update->link)) {
+            unlink('storage/' . $update->link);
         }
         $file = $request->file('link');
         $file->move($path, $fileName);
@@ -165,7 +165,8 @@ class DataAlumniController extends Controller
         Alert::success('success', 'Data Berhasil Dihapus');
         return redirect()->back();
     }
-    public function check($id){
+    public function check($id)
+    {
         $data['title'] = 'Data Alumni';
         $data['data'] = User::find($id);
         return view('backend.data_alumni.add_ijazah', $data);
@@ -174,10 +175,9 @@ class DataAlumniController extends Controller
     public function verify($id)
     {
         $data = User::find($id);
-        if($data->email_verified_at != NULL){
+        if ($data->email_verified_at != NULL) {
             $data->email_verified_at = NULL;
-        }
-        else{
+        } else {
             $data->email_verified_at = Carbon::now();
         }
         $data->save();
@@ -185,12 +185,13 @@ class DataAlumniController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'nisn' => ['required', 'string', 'max:255', 'unique:users'],
         ]);
+
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -198,18 +199,45 @@ class DataAlumniController extends Controller
             'role' => 'alumni',
             'nisn' => $request['nisn'],
         ]);
-        $alumni = DataAlumni::create(
-            [
-                'alamat' => $request['alamat'],
-                'tempat_lahir' => $request['tempat_lahir'],
-                'tanggal_lahir' => $request['tanggal_lahir'],
-                'tanggal_lahir' => $request['tanggal_lahir'],
-                'nama_ayah' => $request['nama_ayah'],
-                'nama_ibu' => $request['nama_ibu'],
-                'user_id' => $user->id,
+        // dd($user);
+        if ($request->file('foto')) {
+            $extension = $request->foto->getClientOriginalExtension();
+            $fileName = Str::slug($user->name) . '.' . $extension;
+            $path = public_path() . '/storage/alumni/';
+            $dir = 'alumni' . '/' . $fileName;
+            $update = DataAlumni::where('user_id', $user->id);
+            if (!empty($update->foto)) {
+                unlink('storage/' . $update->foto);
+            }
+            $file = $request->file('foto');
+            $file->move($path, $fileName);
+            $alumni = DataAlumni::create(
+                [
+                    'alamat' => $request['alamat'],
+                    'tempat_lahir' => $request['tempat_lahir'],
+                    'tanggal_lahir' => $request['tanggal_lahir'],
+                    'tanggal_lahir' => $request['tanggal_lahir'],
+                    'nama_ayah' => $request['nama_ayah'],
+                    'nama_ibu' => $request['nama_ibu'],
+                    'user_id' => $user->id,
+                    'foto' => $dir,
+                ]
+            );
+        }
+        else {
+            $alumni = DataAlumni::create(
+                [
+                    'alamat' => $request['alamat'],
+                    'tempat_lahir' => $request['tempat_lahir'],
+                    'tanggal_lahir' => $request['tanggal_lahir'],
+                    'tanggal_lahir' => $request['tanggal_lahir'],
+                    'nama_ayah' => $request['nama_ayah'],
+                    'nama_ibu' => $request['nama_ibu'],
+                    'user_id' => $user->id,
 
-            ]
-        );
+                ]
+            );
+        }
         Alert::success('success', 'Data Berhasil ditambahkan');
         return redirect('admin/alumni');
     }

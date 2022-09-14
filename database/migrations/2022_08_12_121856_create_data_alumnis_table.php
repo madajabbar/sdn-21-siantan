@@ -16,6 +16,7 @@ class CreateDataAlumnisTable extends Migration
         Schema::create('data_alumnis', function (Blueprint $table) {
             $table->id();
             $table->string('link')->nullable();
+            $table->string('foto')->nullable();
             $table->string('alamat')->nullable();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
