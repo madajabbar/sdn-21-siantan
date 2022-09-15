@@ -6,6 +6,10 @@ use App\Http\Controllers\admin\DataAlumniController;
 use App\Http\Controllers\admin\DataPelajarController;
 use App\Http\Controllers\admin\DataPengajarController;
 use App\Http\Controllers\admin\GaleriController;
+use App\Http\Controllers\admin\JadwalController;
+use App\Http\Controllers\admin\KelasController;
+use App\Http\Controllers\admin\MataPelajaranController;
+use App\Http\Controllers\admin\NilaiController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\SilabusController;
 use App\Http\Controllers\HomeController;
@@ -54,6 +58,16 @@ Route::prefix('admin')->middleware(['role'])->group(function(){
     Route::resource('/pengajar', DataPengajarController::class);
     Route::resource('/pelajar', DataPelajarController::class);
     Route::resource('/alumni', DataAlumniController::class);
+    Route::resource('/kelas', KelasController::class);
+    Route::resource('/mata-pelajaran', MataPelajaranController::class);
+    Route::resource('/jadwal', JadwalController::class);
+    Route::resource('/nilai', NilaiController::class);
+    Route::get('/pelajar/{id}/nilai',[DataPelajarController::class,'nilai']);
+    Route::get('/pelajar/lihat/nilai/{id}',[DataPelajarController::class,'lihatNilai'])->name('pelajar.lihat.nilai');
+    Route::get('/pelajar/lihat/nilai/{id}/edit',[DataPelajarController::class,'editNilai'])->name('pelajar.edit.nilai');
+    Route::post('/pelajar/nilai',[DataPelajarController::class,'addNilai'])->name('pelajar.nilai');
+    Route::post('/pelajar/nilai/edit',[DataPelajarController::class,'updateNilai'])->name('pelajar.nilai.edit');
+
     Route::get('alumni/verifikasi/{id}',[DataAlumniController::class,'verify']);
     Route::get('alumni/{id}/check',[DataAlumniController::class,'check']);
     Route::post('alumni/addIjazah',[DataAlumniController::class,'addIjazah'])->name('alumni.addIjazah');
@@ -62,5 +76,7 @@ Route::prefix('admin')->middleware(['role'])->group(function(){
     Route::get('berita/delete/{id}',[BeritaController::class,'destroy']);
     Route::get('pengajar/delete/{id}',[DataPengajarController::class,'destroy']);
     Route::get('pelajar/delete/{id}',[DataPelajarController::class,'destroy']);
+    Route::get('kelas/delete/{id}',[KelasController::class,'destroy']);
+    Route::get('jadwal/delete/{id}',[JadwalController::class,'destroy']);
     Route::get('/alumni/delete/{id}',[DataAlumniController::class,'destroy']);
 });

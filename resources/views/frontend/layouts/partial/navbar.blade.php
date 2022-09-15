@@ -45,13 +45,12 @@
                                 <a class="nav-link" href="{{Auth::user()->dataAlumni->link ? asset('storage/'. Auth::user()->dataAlumni->link) : '#'}}">{{Auth::user()->dataAlumni->link ? 'Download' : 'Menunggu'}}</a>
                             </li>
                         @endif
-
                     @endif
                 </ul>
             </div>
             @if (Auth::check())
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-icon position-relative text-decoration-none" href="{{Auth::user()->role == 'alumni' ? url('user/'.Auth::user()->id) : route('dashboard.index')}}">
+                    <a class="nav-icon position-relative text-decoration-none" href="{{url('user/'.Auth::user()->id)}}">
                         <span class="btn btn-light top-0 left-100">{{Auth::user()->name}}</span>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">

@@ -47,4 +47,7 @@ class User extends Authenticatable
     public function dataAlumni(){
         return $this->hasOne(DataAlumni::class);
     }
+    public function dataPelajar(){
+        return $this->hasOne(DataPelajar::class);
+    }
 }
